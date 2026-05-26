@@ -5,6 +5,13 @@ export const metadata = {
   title: "Contact & Devis — Logidental",
   description:
     "Contactez Logidental pour une étude gratuite et personnalisée de votre projet de cabinet dentaire. Nous vous répondons sous 24h.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    url: "/contact",
+    title: "Contact & Devis — Logidental",
+    description:
+      "Contactez Logidental pour une étude gratuite et personnalisée de votre projet de cabinet dentaire. Nous vous répondons sous 24h.",
+  },
 };
 
 export default function ContactPage() {

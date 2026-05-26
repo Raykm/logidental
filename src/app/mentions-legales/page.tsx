@@ -1,5 +1,10 @@
 export const metadata = {
   title: "Mentions légales — Logidental",
+  alternates: { canonical: "/mentions-legales" },
+  openGraph: {
+    url: "/mentions-legales",
+    title: "Mentions légales — Logidental",
+  },
 };
 
 export default function MentionsLegalesPage() {

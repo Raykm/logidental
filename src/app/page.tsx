@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { mainServices } from "@/data/services";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+  openGraph: {
+    url: "/",
+    title: "Logidental — Services dédiés à la médecine Bucco-Dentaire",
+    description:
+      "Depuis 2014, Logidental conçoit et réalise l'agencement complet de cabinets dentaires clés en main : agencement, informatique, digitalisation.",
+  },
+};
 
 const stats = [
   { value: "2014", label: "Année de création" },

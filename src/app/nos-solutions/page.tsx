@@ -6,6 +6,13 @@ export const metadata = {
   title: "Nos Solutions — Logidental",
   description:
     "Agencement A-Z, Informatique & Réseaux, Digitalisation : découvrez les 3 domaines d'expertise de Logidental pour votre cabinet dentaire.",
+  alternates: { canonical: "/nos-solutions" },
+  openGraph: {
+    url: "/nos-solutions",
+    title: "Nos Solutions — Logidental",
+    description:
+      "Agencement A-Z, Informatique & Réseaux, Digitalisation : découvrez les 3 domaines d'expertise de Logidental pour votre cabinet dentaire.",
+  },
 };
 
 export default function NosolutionsPage() {

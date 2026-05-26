@@ -4,6 +4,13 @@ export const metadata = {
   title: "Nos Réalisations — Logidental",
   description:
     "Découvrez nos réalisations : cabinets dentaires conçus et livrés clés en main par les équipes Logidental.",
+  alternates: { canonical: "/nos-realisations" },
+  openGraph: {
+    url: "/nos-realisations",
+    title: "Nos Réalisations — Logidental",
+    description:
+      "Découvrez nos réalisations : cabinets dentaires conçus et livrés clés en main par les équipes Logidental.",
+  },
 };
 
 const placeholders = [1, 2, 3, 4, 5];

@@ -6,6 +6,12 @@ export const metadata = {
   title: "Support — Logidental",
   description:
     "Besoin d'aide ? Accédez à la téléassistance Logidental ou ouvrez un ticket de support.",
+  alternates: { canonical: "/support" },
+  openGraph: {
+    url: "/support",
+    title: "Support — Logidental",
+    description: "Besoin d'aide ? Accédez à la téléassistance Logidental ou ouvrez un ticket de support.",
+  },
 };
 
 export default function SupportPage() {

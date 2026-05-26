@@ -8,6 +8,13 @@ export const metadata = {
   title: "La solution Racines & Couronnes — Logidental",
   description:
     "Racines & Couronnes : une solution innovante pour exercer en libéral dans un cabinet dentaire clé en main, avec indépendance totale.",
+  alternates: { canonical: "/racines-couronnes" },
+  openGraph: {
+    url: "/racines-couronnes",
+    title: "La solution Racines & Couronnes — Logidental",
+    description:
+      "Racines & Couronnes : une solution innovante pour exercer en libéral dans un cabinet dentaire clé en main, avec indépendance totale.",
+  },
 };
 
 const avantages = [

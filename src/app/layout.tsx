@@ -15,11 +15,32 @@ const dmSerifDisplay = DM_Serif_Display({
   variable: "--font-dm-serif",
 });
 
+const SITE_URL = "https://logidental.fr";
+const DEFAULT_OG_IMAGE = "/logos/logo-logidental.png";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Logidental — Services dédiés à la médecine Bucco-Dentaire",
   description:
     "Depuis 2014, Logidental conçoit et réalise l'agencement complet de cabinets dentaires clés en main : agencement, informatique, digitalisation.",
   keywords: ["cabinet dentaire", "agencement dentaire", "clé en main", "Logidental", "Racines & Couronnes"],
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    url: SITE_URL,
+    siteName: "Logidental",
+    title: "Logidental — Services dédiés à la médecine Bucco-Dentaire",
+    description:
+      "Depuis 2014, Logidental conçoit et réalise l'agencement complet de cabinets dentaires clés en main : agencement, informatique, digitalisation.",
+    images: [{ url: DEFAULT_OG_IMAGE, alt: "Logidental" }],
+  },
+  twitter: {
+    card: "summary",
+    title: "Logidental — Services dédiés à la médecine Bucco-Dentaire",
+    description:
+      "Depuis 2014, Logidental conçoit et réalise l'agencement complet de cabinets dentaires clés en main : agencement, informatique, digitalisation.",
+    images: [DEFAULT_OG_IMAGE],
+  },
 };
 
 export default function RootLayout({

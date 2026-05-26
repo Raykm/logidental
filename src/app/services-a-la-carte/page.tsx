@@ -6,6 +6,13 @@ export const metadata = {
   title: "Services à la carte — Logidental",
   description:
     "Complétez votre offre avec nos services à la carte : assistance administrative, communication, radioprotection, secrétariat, hygiène et plus encore.",
+  alternates: { canonical: "/services-a-la-carte" },
+  openGraph: {
+    url: "/services-a-la-carte",
+    title: "Services à la carte — Logidental",
+    description:
+      "Complétez votre offre avec nos services à la carte : assistance administrative, communication, radioprotection, secrétariat, hygiène et plus encore.",
+  },
 };
 
 export default function ServicesAlaCartePage() {
