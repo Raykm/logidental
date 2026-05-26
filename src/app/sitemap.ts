@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const BASE = "https://logidental.fr";
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://logidental.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

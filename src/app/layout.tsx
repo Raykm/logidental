@@ -15,7 +15,7 @@ const dmSerifDisplay = DM_Serif_Display({
   variable: "--font-dm-serif",
 });
 
-const SITE_URL = "https://logidental.fr";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://logidental.vercel.app";
 const DEFAULT_OG_IMAGE = "/logos/logo-logidental.png";
 
 export const metadata: Metadata = {
