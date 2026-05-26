@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   description:
     "Depuis 2014, Logidental conçoit et réalise l'agencement complet de cabinets dentaires clés en main : agencement, informatique, digitalisation.",
   keywords: ["cabinet dentaire", "agencement dentaire", "clé en main", "Logidental", "Racines & Couronnes"],
+  verification: { google: "xn1XPen40RySBdDEfRfkh3rcnWXgMivDGlf32yVhLvw" },
   openGraph: {
     type: "website",
     locale: "fr_FR",
