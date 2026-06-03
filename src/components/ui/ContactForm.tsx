@@ -3,15 +3,8 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Send, Loader2, FileText, Calendar, MessageCircle, Phone } from "lucide-react";
+import { Send, Loader2 } from "lucide-react";
 import { useState } from "react";
-
-const typeOptions = [
-  { value: "devis", label: "Demander un devis", icon: FileText },
-  { value: "rdv", label: "Prendre un rendez-vous", icon: Calendar },
-  { value: "question", label: "Poser une question", icon: MessageCircle },
-  { value: "rappel", label: "Rappel téléphonique", icon: Phone },
-];
 
 const sujets = [
   "Agencement de cabinet",
@@ -44,14 +37,11 @@ export default function ContactForm({ defaultType }: Props) {
     register,
     handleSubmit,
     reset,
-    watch,
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
-    defaultValues: { type: defaultType ?? "" },
+    defaultValues: { type: defaultType ?? "devis" },
   });
-
-  const selectedType = watch("type");
 
   async function onSubmit(data: FormData) {
     setStatus("loading");
@@ -80,37 +70,7 @@ export default function ContactForm({ defaultType }: Props) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-      {/* Type de demande */}
-      <div>
-        <label className="block text-sm font-medium text-charcoal mb-2">Type de demande *</label>
-        <div className="grid grid-cols-2 gap-3">
-          {typeOptions.map((opt) => (
-            <label
-              key={opt.value}
-              className={`flex items-center gap-3 p-3 border rounded-lg cursor-pointer transition-colors ${
-                selectedType === opt.value
-                  ? "border-primary bg-primary/5"
-                  : "border-gray-200 hover:border-gray-300"
-              }`}
-            >
-              <input type="radio" {...register("type")} value={opt.value} className="sr-only" />
-              <opt.icon
-                className={`w-4 h-4 flex-shrink-0 ${
-                  selectedType === opt.value ? "text-primary" : "text-charcoal-muted"
-                }`}
-              />
-              <span
-                className={`text-sm font-medium leading-tight ${
-                  selectedType === opt.value ? "text-primary" : "text-charcoal"
-                }`}
-              >
-                {opt.label}
-              </span>
-            </label>
-          ))}
-        </div>
-        {errors.type && <p className="text-red-500 text-xs mt-1">{errors.type.message}</p>}
-      </div>
+      <input type="hidden" {...register("type")} />
 
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
