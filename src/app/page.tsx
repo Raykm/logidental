@@ -51,7 +51,7 @@ export default function HomePage() {
                 href="/contact"
                 className="border border-white/30 hover:border-white text-white font-semibold px-6 py-3.5 rounded-lg transition-colors"
               >
-                Demander un devis
+                Nous contacter
               </Link>
             </div>
           </div>
@@ -158,7 +158,7 @@ export default function HomePage() {
               href="/contact"
               className="bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-3.5 rounded-lg transition-colors inline-flex items-center gap-2"
             >
-              Demander un devis
+              Nous contacter
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a

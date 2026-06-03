@@ -73,7 +73,7 @@ export default function NosolutionsPage() {
                   href="/contact"
                   className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
                 >
-                  Demander un devis <ArrowRight className="w-4 h-4" />
+                  Nous contacter <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
@@ -94,7 +94,7 @@ export default function NosolutionsPage() {
             href="/contact"
             className="bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-3.5 rounded-lg transition-colors inline-flex items-center gap-2"
           >
-            Demander un devis
+            Nous contacter
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

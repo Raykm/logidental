@@ -71,7 +71,7 @@ export default function Header() {
               href="/contact"
               className="bg-primary hover:bg-primary-dark text-white font-semibold px-5 py-2.5 rounded-lg transition-colors"
             >
-              Demander un devis
+              Nous contacter
             </Link>
           </div>
 
@@ -130,7 +130,7 @@ export default function Header() {
             className="mt-2 bg-primary text-white font-semibold px-5 py-3 rounded-lg text-center"
             onClick={() => setMobileOpen(false)}
           >
-            Demander un devis
+            Nous contacter
           </Link>
         </div>
       )}
