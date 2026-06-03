@@ -151,14 +151,14 @@ export default function HomePage() {
             Un projet de cabinet dentaire ?
           </h2>
           <p className="text-charcoal-muted mb-8 max-w-xl mx-auto">
-            Contactez-nous pour une étude personnalisée et gratuite. Nous vous rappelons sous 24h.
+            Contactez-nous pour une étude personnalisée. Nous vous rappelons sous 24h.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
               className="bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-3.5 rounded-lg transition-colors inline-flex items-center gap-2"
             >
-              Demander un devis gratuit
+              Demander un devis
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a

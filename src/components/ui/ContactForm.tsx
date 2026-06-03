@@ -1,20 +1,17 @@
 "use client";
 
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Send, Loader2 } from "lucide-react";
+import { Send, Loader2, FileText, Calendar, MessageCircle, Phone } from "lucide-react";
+import { useState } from "react";
 
-const schema = z.object({
-  nom: z.string().min(2, "Nom requis"),
-  email: z.string().email("Email invalide"),
-  telephone: z.string().optional(),
-  sujet: z.string().min(1, "Sujet requis"),
-  message: z.string().min(20, "Message trop court (20 caractères min.)"),
-});
-
-type FormData = z.infer<typeof schema>;
+const typeOptions = [
+  { value: "devis", label: "Demander un devis", icon: FileText },
+  { value: "rdv", label: "Prendre un rendez-vous", icon: Calendar },
+  { value: "question", label: "Poser une question", icon: MessageCircle },
+  { value: "rappel", label: "Rappel téléphonique", icon: Phone },
+];
 
 const sujets = [
   "Agencement de cabinet",
@@ -25,15 +22,36 @@ const sujets = [
   "Autre",
 ];
 
-export default function ContactForm() {
+const schema = z.object({
+  type: z.string().min(1, "Veuillez choisir un type de demande"),
+  nom: z.string().min(2, "Nom requis"),
+  email: z.string().email("Email invalide"),
+  telephone: z.string().optional(),
+  sujet: z.string().min(1, "Sujet requis"),
+  message: z.string().min(20, "Message trop court (20 caractères min.)"),
+});
+
+type FormData = z.infer<typeof schema>;
+
+type Props = {
+  defaultType?: string;
+};
+
+export default function ContactForm({ defaultType }: Props) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
-  } = useForm<FormData>({ resolver: zodResolver(schema) });
+  } = useForm<FormData>({
+    resolver: zodResolver(schema),
+    defaultValues: { type: defaultType ?? "" },
+  });
+
+  const selectedType = watch("type");
 
   async function onSubmit(data: FormData) {
     setStatus("loading");
@@ -62,6 +80,38 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+      {/* Type de demande */}
+      <div>
+        <label className="block text-sm font-medium text-charcoal mb-2">Type de demande *</label>
+        <div className="grid grid-cols-2 gap-3">
+          {typeOptions.map((opt) => (
+            <label
+              key={opt.value}
+              className={`flex items-center gap-3 p-3 border rounded-lg cursor-pointer transition-colors ${
+                selectedType === opt.value
+                  ? "border-primary bg-primary/5"
+                  : "border-gray-200 hover:border-gray-300"
+              }`}
+            >
+              <input type="radio" {...register("type")} value={opt.value} className="sr-only" />
+              <opt.icon
+                className={`w-4 h-4 flex-shrink-0 ${
+                  selectedType === opt.value ? "text-primary" : "text-charcoal-muted"
+                }`}
+              />
+              <span
+                className={`text-sm font-medium leading-tight ${
+                  selectedType === opt.value ? "text-primary" : "text-charcoal"
+                }`}
+              >
+                {opt.label}
+              </span>
+            </label>
+          ))}
+        </div>
+        {errors.type && <p className="text-red-500 text-xs mt-1">{errors.type.message}</p>}
+      </div>
+
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label className="block text-sm font-medium text-charcoal mb-1.5">Nom *</label>
@@ -83,6 +133,7 @@ export default function ContactForm() {
           {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
         </div>
       </div>
+
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label className="block text-sm font-medium text-charcoal mb-1.5">Téléphone</label>
@@ -107,6 +158,7 @@ export default function ContactForm() {
           {errors.sujet && <p className="text-red-500 text-xs mt-1">{errors.sujet.message}</p>}
         </div>
       </div>
+
       <div>
         <label className="block text-sm font-medium text-charcoal mb-1.5">Message *</label>
         <textarea
@@ -117,9 +169,11 @@ export default function ContactForm() {
         />
         {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
       </div>
+
       {status === "error" && (
         <p className="text-red-600 text-sm">Une erreur est survenue. Veuillez réessayer ou nous appeler.</p>
       )}
+
       <button
         type="submit"
         disabled={status === "loading"}
