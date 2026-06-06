@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Monitor, TicketCheck, Phone, Clock } from "lucide-react";
 import TicketForm from "@/components/ui/TicketForm";
 

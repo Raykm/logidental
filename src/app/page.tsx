@@ -37,7 +37,7 @@ export default function HomePage() {
             </h1>
             <p className="text-gray-300 text-lg leading-relaxed mb-10 max-w-xl">
               Interlocuteur unique pour la conception et réalisation complète de vos cabinets dentaires —
-              de l'étude à la livraison, clé en main.
+              de l&apos;étude à la livraison, clé en main.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -77,7 +77,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center mb-14">
             <h2 className="font-serif text-3xl sm:text-4xl text-charcoal mb-4">
-              Nos domaines d'expertise
+              Nos domaines d&apos;expertise
             </h2>
             <p className="text-charcoal-muted max-w-2xl mx-auto">
               Une offre complète pour équiper, connecter et digitaliser votre cabinet dentaire —
@@ -129,7 +129,7 @@ export default function HomePage() {
                 </h2>
                 <p className="text-white/80 max-w-xl leading-relaxed">
                   Une solution innovante pour concilier confort, sérénité et indépendance.
-                  Fruit d'une collaboration entre praticiens et spécialistes du monde dentaire.
+                  Fruit d&apos;une collaboration entre praticiens et spécialistes du monde dentaire.
                 </p>
               </div>
             </div>

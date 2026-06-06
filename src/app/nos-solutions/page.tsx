@@ -28,8 +28,8 @@ export default function NosolutionsPage() {
             Une offre complète, un seul interlocuteur
           </h1>
           <p className="text-charcoal-muted max-w-2xl text-lg">
-            Logidental prend en charge l'intégralité de votre projet de cabinet dentaire — de la conception
-            à la livraison, en passant par l'infrastructure numérique et la communication.
+            Logidental prend en charge l&apos;intégralité de votre projet de cabinet dentaire — de la conception
+            à la livraison, en passant par l&apos;infrastructure numérique et la communication.
           </p>
         </div>
       </section>
