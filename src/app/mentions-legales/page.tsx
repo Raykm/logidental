@@ -29,7 +29,7 @@ export default function MentionsLegalesPage() {
 
           <div>
             <h2 className="font-semibold text-charcoal text-xl mb-4">Directeur de la publication</h2>
-            <p>Alexandre TALHOUK, Directeur Général</p>
+            <p>Raymond Karim, Directeur Général</p>
           </div>
 
           <div>

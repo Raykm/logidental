@@ -10,14 +10,14 @@ export const faq = [
       "Dans un cabinet classique, les dentistes sont soit associés, soit collaborateurs. Dans un Pôle R&C, ils sont simplement des confrères, sans aucune relation financière entre eux : la gestion des charges et des ressources humaines est entièrement portée par Logidental. La structure et la charte d'un Pôle permettent à chacun de profiter de l'expérience du collectif, dans une relation de confiance, pour pratiquer la médecine bucco-dentaire en toute sérénité et en conservant son indépendance.",
   },
   {
-    question: "Comment la mutualisation réduit-elle mes charges ?",
+    question: "Combien coûte la solution R&C ?",
     answer:
-      "En confiant à Logidental tout ce qui ne relève pas du soin, vous mutualisez les charges fixes — loyer, personnel, énergie, informatique, assurances — dont le coût par praticien décroît à mesure que le pôle s'agrandit. S'y ajoutent des achats groupés (consommables, prothèses, maintenance) et le partage d'équipements lourds comme l'imagerie ou la stérilisation, amortis sur l'ensemble du pôle. À activité égale, votre revenu net s'en trouve amélioré. L'effet précis sur votre situation est chiffré lors d'une étude personnalisée, avec l'expert-comptable du cabinet.",
+      "Vous louez un cabinet clé en main contre un loyer mensuel. Ce loyer comprend un socle de base — locaux équipés et services essentiels — auquel s'ajoutent les modules que vous choisissez (secrétariat, stérilisation, consommables, communication, etc.). Vous ne payez donc que pour ce dont vous avez réellement besoin, avec un budget mensuel clair et sans investissement initial lourd. Le montant exact est établi avec vous lors d'une étude personnalisée.",
   },
   {
     question: "Qu'est-ce qui reste à ma charge ?",
     answer:
-      "Logidental prend en charge les locaux, le personnel, l'informatique, la maintenance, les assurances collectives et toute la gestion administrative et comptable. Restent à votre charge ce qui relève directement de votre exercice : vos consommables et prothèses, votre responsabilité civile professionnelle, votre fiscalité personnelle (impôt sur le revenu, CFE et CVAE) — et bien sûr le soin et la relation avec vos patients.",
+      "Selon le socle et les modules que vous souscrivez, Logidental prend en charge les locaux, le personnel, l'informatique, la maintenance, les assurances collectives et la gestion administrative et comptable. Restent à votre charge ce qui relève directement de votre exercice : vos consommables et prothèses, votre responsabilité civile professionnelle, votre fiscalité personnelle (impôt sur le revenu, CFE et CVAE) — et bien sûr le soin et la relation avec vos patients.",
   },
   {
     question: "À quels engagements qualité suis-je tenu ?",

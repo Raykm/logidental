@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
+  ChevronDown,
   TrendingUp,
   ShieldCheck,
   BadgeCheck,
@@ -112,30 +113,20 @@ export default function RacinesCouronnesPage() {
             </Reveal>
           </div>
         </div>
-      </section>
 
-      {/* Résumé vendeur */}
-      <section className="bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <Reveal>
-            <span className="inline-block text-primary font-semibold text-sm tracking-widest uppercase mb-4">
-              La promesse R&amp;C
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl text-charcoal mb-5">
-              Tout votre cabinet, sauf le soin
-            </h2>
-            <p className="text-charcoal-muted leading-relaxed text-lg">
-              Racines &amp; Couronnes est le label de Logidental qui réunit, sous un cadre éthique commun,
-              des chirurgiens-dentistes libéraux au sein de pôles mutualisés. Vous bénéficiez de la force
-              d&apos;un collectif — économies d&apos;échelle, équipements partagés, gestion entièrement
-              déléguée — tout en restant pleinement indépendant et propriétaire de votre patientèle.
-            </p>
-          </Reveal>
-        </div>
+        {/* Indice de scroll */}
+        <a
+          href="#decouvrir"
+          aria-label="Faire défiler vers le contenu"
+          className="hidden md:flex absolute bottom-6 left-1/2 -translate-x-1/2 flex-col items-center gap-1.5 text-white/70 hover:text-white transition-colors"
+        >
+          <span className="text-xs font-semibold tracking-widest uppercase">Découvrir</span>
+          <ChevronDown className="scroll-cue w-6 h-6 animate-bounce" />
+        </a>
       </section>
 
       {/* Slogan */}
-      <section className="relative overflow-hidden bg-charcoal text-white">
+      <section id="decouvrir" className="relative overflow-hidden bg-charcoal text-white scroll-mt-20">
         <div
           aria-hidden
           className="pointer-events-none absolute -top-20 left-1/4 w-72 h-72 rounded-full bg-secondary/20 blur-3xl"
@@ -144,6 +135,24 @@ export default function RacinesCouronnesPage() {
           <Reveal>
             <p className="font-serif text-3xl sm:text-4xl lg:text-5xl leading-tight">
               Notre expérience au service de <span className="text-secondary">votre exercice.</span>
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* La promesse R&C */}
+      <section className="bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+          <Reveal>
+            <h2 className="text-primary font-semibold text-sm tracking-widest uppercase mb-5">
+              La promesse R&amp;C
+            </h2>
+            <p className="text-charcoal-muted leading-relaxed text-lg">
+              Racines &amp; Couronnes est le label de Logidental qui permet aux chirurgiens-dentistes
+              libéraux d&apos;exercer dans un cabinet clé en main. Vous louez un cabinet entièrement
+              équipé et choisissez les services dont vous avez besoin, pour un loyer mensuel clair — tout
+              en restant pleinement indépendant et propriétaire de votre patientèle. Logidental prend en
+              charge tout ce qui ne relève pas du soin.
             </p>
           </Reveal>
         </div>

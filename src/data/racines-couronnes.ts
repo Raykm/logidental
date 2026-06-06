@@ -7,9 +7,9 @@ export const clusterPages = [
   {
     slug: "le-modele",
     label: "Le modèle économique",
-    tagline: "Mutualisez vos charges, démultipliez votre rentabilité",
+    tagline: "Un loyer mensuel, un socle de base, des modules à la carte",
     teaser:
-      "Confiez à Logidental tout ce qui ne relève pas du soin : charges fixes mutualisées, achats groupés, équipements lourds partagés. Un avantage économique qu'un praticien isolé n'obtient pas.",
+      "Vous louez un cabinet clé en main et ne payez que pour les services dont vous avez besoin. Un loyer mensuel clair, ajustable selon les modules choisis — et toute la gestion déléguée à Logidental.",
   },
   {
     slug: "independance",
@@ -34,42 +34,47 @@ export const clusterPages = [
   },
 ];
 
-// --- Le modèle économique (Partie III du Livre du cabinet) ---
+// --- Le modèle économique : loyer mensuel, socle de base + modules à la carte ---
 
-export const leviersMutualisation = [
+export const principeModele = [
   {
-    title: "Charges fixes mutualisées",
+    title: "Un socle de base",
     description:
-      "Loyer, personnel, énergie, informatique, assurances : le coût unitaire supporté par praticien décroît à mesure que le pôle s'agrandit.",
+      "Vous louez un cabinet clé en main : locaux aménagés, équipement et services essentiels pour exercer dès le premier jour.",
   },
   {
-    title: "Achats groupés",
+    title: "Des modules à la carte",
     description:
-      "Consommables, prothèses, maintenance, prestataires : un volume agrégé améliore mécaniquement vos conditions tarifaires.",
+      "Vous ajoutez uniquement les services dont vous avez besoin — secrétariat, stérilisation, consommables, communication… — et les ajustez à votre activité.",
   },
   {
-    title: "Équipements lourds partagés",
+    title: "Un loyer mensuel",
     description:
-      "Imagerie, stérilisation : des investissements hors de portée en exercice isolé deviennent accessibles, amortis sur l'ensemble du pôle.",
-  },
-  {
-    title: "Gestion fiscale & comptable déléguée",
-    description:
-      "Veille fiscale, collecte et conservation des justificatifs, liaison avec l'expert-comptable : moins de déductions manquées, risque de redressement réduit.",
-  },
-  {
-    title: "Pilotage centralisé",
-    description:
-      "Arbitrages d'investissement (déduction immédiate ou amortissement) et politique tarifaire commune pilotés pour votre compte.",
+      "Vous réglez un loyer mensuel correspondant au socle et aux modules choisis. Un budget clair, sans investissement initial lourd.",
   },
 ];
 
-export const comparatif = [
-  { critere: "Charges fixes", isole: "Supportées seul", pole: "Mutualisées, coût unitaire dégressif" },
-  { critere: "Achats & maintenance", isole: "Tarifs unitaires", pole: "Tarifs négociés en volume" },
-  { critere: "Équipements lourds", isole: "Souvent hors de portée", pole: "Accessibles, amortis collectivement" },
-  { critere: "Comptabilité & fiscalité", isole: "À votre charge", pole: "Externalisée et sécurisée" },
-  { critere: "Temps consacré à la gestion", isole: "Élevé", pole: "Recentré sur le soin" },
+export const avantagesModele = [
+  {
+    title: "Aucun investissement lourd",
+    description:
+      "Pas de matériel à acheter ni de travaux à financer : vous vous installez dans un cabinet déjà équipé.",
+  },
+  {
+    title: "Un budget prévisible",
+    description:
+      "Un loyer mensuel clair qui couvre exactement les services que vous avez retenus, sans mauvaise surprise.",
+  },
+  {
+    title: "Une offre flexible",
+    description:
+      "Vous ne payez que les modules utiles et pouvez les faire évoluer au rythme de votre activité.",
+  },
+  {
+    title: "Zéro gestion",
+    description:
+      "Logidental prend en charge tout ce qui ne relève pas du soin : administratif, personnel, maintenance, informatique…",
+  },
 ];
 
 // --- Indépendance préservée (Charte, règlement intérieur, FAQ) ---

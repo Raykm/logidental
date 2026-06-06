@@ -48,7 +48,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" className={`${dmSans.variable} ${dmSerifDisplay.variable}`}>
+    <html lang="fr" className={`${dmSans.variable} ${dmSerifDisplay.variable} scroll-smooth`}>
       <body className="min-h-screen flex flex-col antialiased">
         <Header />
         <main className="flex-1">{children}</main>
