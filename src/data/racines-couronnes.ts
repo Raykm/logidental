@@ -181,6 +181,51 @@ export const resteAuPraticien = [
   "Votre fiscalité personnelle",
 ];
 
+// --- Le Label Racines & Couronnes (grille d'audit, § 11.3) ---
+
+export const labelDomaines = [
+  {
+    title: "Hygiène et asepsie",
+    description:
+      "Stérilisation tracée selon un protocole formalisé, zones de stérilisation séparées (marche en avant), plan de nettoyage des locaux, contrôle de la qualité de l'eau et de l'air.",
+  },
+  {
+    title: "Sécurité des salariés",
+    description:
+      "Matériel de premiers secours et défibrillateur (DAE), formation AFGSU, EPI conformes, protocole AES affiché, sensibilisation aux risques biologiques et chimiques.",
+  },
+  {
+    title: "Santé publique",
+    description:
+      "Gestion des DASRI avec prestataire agréé, protection RGPD des données patients, stockage sécurisé des produits dangereux et fiches de données de sécurité disponibles.",
+  },
+  {
+    title: "Accueil et protection des patients",
+    description:
+      "Horaires clairs, information des urgences en l'absence du praticien, circuits d'accueil sans croisement, désinfection systématique entre chaque patient, prise en charge des patients fragiles.",
+  },
+  {
+    title: "Conformité réglementaire",
+    description:
+      "DUERP à jour, affichages obligatoires, registre de sécurité, accessibilité PMR validée, contrôle de radioprotection à jour, audits internes réguliers.",
+  },
+  {
+    title: "Maintenance",
+    description:
+      "Vérifications électrique et incendie à jour, maintenance tracée du fauteuil et des dispositifs de stérilisation.",
+  },
+  {
+    title: "Relation patient et éthique",
+    description:
+      "Consentement éclairé systématique, charte patient affichée, enquête de satisfaction annuelle et traitement des retours.",
+  },
+  {
+    title: "Engagement environnemental et performance",
+    description:
+      "Tri sélectif des déchets, réduction des consommables à usage unique, suivi d'indicateurs de performance (ex. taux de rendez-vous manqués).",
+  },
+];
+
 export const processSteps = [
   {
     step: "01",

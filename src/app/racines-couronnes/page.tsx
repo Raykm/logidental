@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
+  Check,
   ChevronDown,
   TrendingUp,
   ShieldCheck,
@@ -13,7 +14,7 @@ import {
   Sunset,
 } from "lucide-react";
 import { faq } from "@/data/faq";
-import { clusterPages } from "@/data/racines-couronnes";
+import { clusterPages, labelDomaines } from "@/data/racines-couronnes";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import Reveal from "@/components/ui/Reveal";
 
@@ -229,6 +230,40 @@ export default function RacinesCouronnesPage() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* Qualité & conformité */}
+      <section className="bg-charcoal text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <Reveal className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="w-12 h-12 rounded-lg bg-secondary/20 flex items-center justify-center mb-5">
+                <ShieldCheck className="w-6 h-6 text-secondary" />
+              </div>
+              <h2 className="font-serif text-3xl sm:text-4xl mb-4">Un label, pas une promesse</h2>
+              <p className="text-white/80 leading-relaxed mb-6">
+                Racines &amp; Couronnes est une démarche qualité <strong className="text-white">auditée</strong> :
+                8 domaines d&apos;exigences, deux niveaux (Essentiel et Excellence) et un audit tous les 6 mois.
+                La garantie d&apos;un cabinet sûr et conforme.
+              </p>
+              <Link
+                href="/racines-couronnes/le-label"
+                className="group inline-flex items-center gap-2 bg-white text-charcoal hover:bg-gray-100 font-semibold px-6 py-3.5 rounded-lg transition-colors"
+              >
+                Découvrir le Label R&amp;C
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+            <ul className="grid sm:grid-cols-2 gap-3">
+              {labelDomaines.map((domaine) => (
+                <li key={domaine.title} className="flex items-start gap-2 text-white/85 text-sm">
+                  <Check className="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" />
+                  {domaine.title}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
       </section>
 

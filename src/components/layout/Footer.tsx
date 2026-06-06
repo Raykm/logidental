@@ -50,6 +50,7 @@ export default function Footer() {
               <li><Link href="/nos-solutions" className="hover:text-white transition-colors">Nos Solutions</Link></li>
               <li><Link href="/racines-couronnes" className="hover:text-white transition-colors">Racines & Couronnes</Link></li>
               <li><Link href="/services-a-la-carte" className="hover:text-white transition-colors">Services à la carte</Link></li>
+              <li><Link href="/racines-couronnes/le-label" className="hover:text-white transition-colors">Le Label R&C</Link></li>
               <li><Link href="/nos-realisations" className="hover:text-white transition-colors">Nos Réalisations</Link></li>
               <li><Link href="/support" className="hover:text-white transition-colors">Support</Link></li>
               <li><Link href="/contact" className="hover:text-white transition-colors">Contact / Devis</Link></li>
@@ -59,9 +60,14 @@ export default function Footer() {
 
         <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-500">
           <p>© {new Date().getFullYear()} Logidental SAS — Tous droits réservés</p>
-          <Link href="/mentions-legales" className="hover:text-gray-300 transition-colors">
-            Mentions légales
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link href="/confidentialite" className="hover:text-gray-300 transition-colors">
+              Politique de confidentialité
+            </Link>
+            <Link href="/mentions-legales" className="hover:text-gray-300 transition-colors">
+              Mentions légales
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
