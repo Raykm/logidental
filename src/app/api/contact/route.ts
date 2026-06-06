@@ -1,13 +1,33 @@
 import { Resend } from "resend";
 import { NextRequest, NextResponse } from "next/server";
+import { contactSchema } from "@/lib/schemas";
+import { isRateLimited } from "@/lib/ratelimit";
 
 export async function POST(req: NextRequest) {
-  const resend = new Resend(process.env.RESEND_API_KEY);
-  const body = await req.json();
-  const { nom, email, telephone, sujet, message, type } = body;
+  if (await isRateLimited(req)) {
+    return NextResponse.json(
+      { error: "Trop de requêtes. Merci de réessayer dans quelques minutes." },
+      { status: 429 }
+    );
+  }
 
-  if (!nom || !email || !sujet || !message || !type) {
-    return NextResponse.json({ error: "Champs manquants" }, { status: 400 });
+  let raw: unknown;
+  try {
+    raw = await req.json();
+  } catch {
+    return NextResponse.json({ error: "Requête invalide" }, { status: 400 });
+  }
+
+  const parsed = contactSchema.safeParse(raw);
+  if (!parsed.success) {
+    return NextResponse.json({ error: "Champs invalides" }, { status: 400 });
+  }
+  const { nom, email, telephone, sujet, message, type, _gotcha } = parsed.data;
+
+  // Honeypot : si ce champ caché est rempli, c'est un bot. On accepte sans
+  // rien envoyer pour ne pas signaler le filtrage.
+  if (_gotcha) {
+    return NextResponse.json({ ok: true });
   }
 
   const typeLabels: Record<string, string> = {
@@ -19,6 +39,7 @@ export async function POST(req: NextRequest) {
   const typeLabel = typeLabels[type] ?? type;
 
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
       from: "Logidental <contact@logidental.fr>",
       to: "raymond.karim@logidental.fr",

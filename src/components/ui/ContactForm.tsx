@@ -2,9 +2,9 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { Send, Loader2 } from "lucide-react";
 import { useState } from "react";
+import { contactSchema, type ContactData } from "@/lib/schemas";
 
 const sujets = [
   "Agencement de cabinet",
@@ -14,17 +14,6 @@ const sujets = [
   "Services à la carte",
   "Autre",
 ];
-
-const schema = z.object({
-  type: z.string().min(1, "Veuillez choisir un type de demande"),
-  nom: z.string().min(2, "Nom requis"),
-  email: z.string().email("Email invalide"),
-  telephone: z.string().optional(),
-  sujet: z.string().min(1, "Sujet requis"),
-  message: z.string().min(20, "Message trop court (20 caractères min.)"),
-});
-
-type FormData = z.infer<typeof schema>;
 
 type Props = {
   defaultType?: string;
@@ -38,12 +27,12 @@ export default function ContactForm({ defaultType }: Props) {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<FormData>({
-    resolver: zodResolver(schema),
+  } = useForm<ContactData>({
+    resolver: zodResolver(contactSchema),
     defaultValues: { type: defaultType ?? "devis" },
   });
 
-  async function onSubmit(data: FormData) {
+  async function onSubmit(data: ContactData) {
     setStatus("loading");
     try {
       const res = await fetch("/api/contact", {
@@ -71,6 +60,15 @@ export default function ContactForm({ defaultType }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
       <input type="hidden" {...register("type")} />
+      {/* Honeypot anti-bot : invisible, ne pas remplir */}
+      <input
+        type="text"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        {...register("_gotcha")}
+        style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+      />
 
       <div className="grid sm:grid-cols-2 gap-5">
         <div>

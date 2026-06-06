@@ -1,16 +1,37 @@
 import { Resend } from "resend";
 import { NextRequest, NextResponse } from "next/server";
+import { ticketSchema } from "@/lib/schemas";
+import { isRateLimited } from "@/lib/ratelimit";
 
 export async function POST(req: NextRequest) {
-  const resend = new Resend(process.env.RESEND_API_KEY);
-  const body = await req.json();
-  const { nom, email, sujet, message } = body;
+  if (await isRateLimited(req)) {
+    return NextResponse.json(
+      { error: "Trop de requêtes. Merci de réessayer dans quelques minutes." },
+      { status: 429 }
+    );
+  }
 
-  if (!nom || !email || !sujet || !message) {
-    return NextResponse.json({ error: "Champs manquants" }, { status: 400 });
+  let raw: unknown;
+  try {
+    raw = await req.json();
+  } catch {
+    return NextResponse.json({ error: "Requête invalide" }, { status: 400 });
+  }
+
+  const parsed = ticketSchema.safeParse(raw);
+  if (!parsed.success) {
+    return NextResponse.json({ error: "Champs invalides" }, { status: 400 });
+  }
+  const { nom, email, sujet, message, _gotcha } = parsed.data;
+
+  // Honeypot : si ce champ caché est rempli, c'est un bot. On accepte sans
+  // rien envoyer pour ne pas signaler le filtrage.
+  if (_gotcha) {
+    return NextResponse.json({ ok: true });
   }
 
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
       from: "Logidental Support <contact@logidental.fr>",
       to: "raymond.karim@logidental.fr",

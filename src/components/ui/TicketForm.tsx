@@ -3,17 +3,8 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { Send, Loader2 } from "lucide-react";
-
-const schema = z.object({
-  nom: z.string().min(2, "Nom requis"),
-  email: z.string().email("Email invalide"),
-  sujet: z.string().min(3, "Sujet requis"),
-  message: z.string().min(10, "Décrivez votre problème (10 caractères min.)"),
-});
-
-type FormData = z.infer<typeof schema>;
+import { ticketSchema, type TicketData } from "@/lib/schemas";
 
 export default function TicketForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -23,9 +14,9 @@ export default function TicketForm() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<FormData>({ resolver: zodResolver(schema) });
+  } = useForm<TicketData>({ resolver: zodResolver(ticketSchema) });
 
-  async function onSubmit(data: FormData) {
+  async function onSubmit(data: TicketData) {
     setStatus("loading");
     try {
       const res = await fetch("/api/ticket", {
@@ -52,6 +43,15 @@ export default function TicketForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      {/* Honeypot anti-bot : invisible, ne pas remplir */}
+      <input
+        type="text"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        {...register("_gotcha")}
+        style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+      />
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-charcoal mb-1">Nom</label>
