@@ -52,7 +52,7 @@ export default function Footer() {
               <li><Link href="/services-a-la-carte" className="hover:text-white transition-colors">Services à la carte</Link></li>
               <li><Link href="/racines-couronnes/le-label" className="hover:text-white transition-colors">Le Label R&C</Link></li>
               <li><Link href="/support" className="hover:text-white transition-colors">Support</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Contact / Devis</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
         </div>
