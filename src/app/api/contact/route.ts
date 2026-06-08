@@ -1,7 +1,7 @@
-import { Resend } from "resend";
 import { NextRequest, NextResponse } from "next/server";
 import { contactSchema } from "@/lib/schemas";
 import { isRateLimited } from "@/lib/ratelimit";
+import { getTransporter, mailFrom, mailTo } from "@/lib/mailer";
 
 export async function POST(req: NextRequest) {
   if (await isRateLimited(req)) {
@@ -39,10 +39,10 @@ export async function POST(req: NextRequest) {
   const typeLabel = typeLabels[type] ?? type;
 
   try {
-    const resend = new Resend(process.env.RESEND_API_KEY);
-    await resend.emails.send({
-      from: "Logidental <contact@logidental.fr>",
-      to: "raymond.karim@logidental.fr",
+    const transporter = getTransporter();
+    await transporter.sendMail({
+      from: `Logidental <${mailFrom}>`,
+      to: mailTo,
       replyTo: email,
       subject: `[${typeLabel}] ${sujet} — ${nom}`,
       text: `Type : ${typeLabel}\nNom : ${nom}\nEmail : ${email}\nTéléphone : ${telephone || "Non renseigné"}\nSujet : ${sujet}\n\nMessage :\n${message}`,

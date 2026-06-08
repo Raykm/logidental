@@ -1,7 +1,7 @@
-import { Resend } from "resend";
 import { NextRequest, NextResponse } from "next/server";
 import { ticketSchema } from "@/lib/schemas";
 import { isRateLimited } from "@/lib/ratelimit";
+import { getTransporter, mailFrom, mailTo } from "@/lib/mailer";
 
 export async function POST(req: NextRequest) {
   if (await isRateLimited(req)) {
@@ -31,10 +31,10 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const resend = new Resend(process.env.RESEND_API_KEY);
-    await resend.emails.send({
-      from: "Logidental Support <contact@logidental.fr>",
-      to: "raymond.karim@logidental.fr",
+    const transporter = getTransporter();
+    await transporter.sendMail({
+      from: `Logidental Support <${mailFrom}>`,
+      to: mailTo,
       replyTo: email,
       subject: `[Ticket] ${sujet} — ${nom}`,
       text: `Nom : ${nom}\nEmail : ${email}\nSujet : ${sujet}\n\nDescription :\n${message}`,
