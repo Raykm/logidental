@@ -9,6 +9,5 @@ export const navigation = [
       { label: "Services à la carte", href: "/services-a-la-carte" },
     ],
   },
-  { label: "Nos Réalisations", href: "/nos-realisations" },
   { label: "Support", href: "/support" },
 ];

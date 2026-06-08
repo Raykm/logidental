@@ -14,7 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/racines-couronnes/cle-en-main`, priority: 0.7 },
     { url: `${BASE}/racines-couronnes/le-label`, priority: 0.7 },
     { url: `${BASE}/services-a-la-carte`, priority: 0.7 },
-    { url: `${BASE}/nos-realisations`, priority: 0.6 },
     { url: `${BASE}/support`, priority: 0.5 },
     { url: `${BASE}/contact`, priority: 0.8 },
     { url: `${BASE}/confidentialite`, priority: 0.2 },

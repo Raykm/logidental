@@ -5,6 +5,10 @@ export const metadata = {
   description:
     "Découvrez nos réalisations : cabinets dentaires conçus et livrés clés en main par les équipes Logidental.",
   alternates: { canonical: "/nos-realisations" },
+  // Page masquée tant qu'il n'y a pas de vraies réalisations à présenter.
+  // Réactiver (retirer ce bloc + remettre les liens menu/footer + sitemap)
+  // une fois les photos disponibles.
+  robots: { index: false, follow: false },
   openGraph: {
     url: "/nos-realisations",
     title: "Nos Réalisations — Logidental",
