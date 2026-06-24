@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { mainServices } from "@/data/services";
+import VideoEmbed from "@/components/ui/VideoEmbed";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -55,6 +56,20 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Vidéo */}
+      <section className="bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="text-center mb-10 max-w-2xl mx-auto">
+            <p className="text-secondary font-semibold text-sm tracking-widest uppercase mb-3">En vidéo</p>
+            <h2 className="font-serif text-3xl sm:text-4xl text-charcoal mb-4">Découvrez Logidental</h2>
+            <p className="text-charcoal-muted">
+              Une présentation de notre approche et de nos solutions pour votre cabinet dentaire.
+            </p>
+          </div>
+          <VideoEmbed id="OSoIRzv9MkM" title="Présentation Logidental" />
         </div>
       </section>
 
